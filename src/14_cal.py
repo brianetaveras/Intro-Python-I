@@ -30,3 +30,20 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+today = datetime.now()
+params = [int(n) for n in sys.argv[1:]]
+
+def drawCal(month = today.month, year = today.year):
+  print(calendar.month(year, month))
+
+if(not len(params)):
+  drawCal()
+elif(len(params) == 1):
+  drawCal(params[0])
+elif(len(params) == 2):
+  drawCal(params[0], params[1])
+else:
+  print("Please provide arguments using the following format: [month] [year] or just [month]")
+
+
